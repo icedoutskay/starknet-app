@@ -2193,6 +2193,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/swc-linux-x64-gnu@npm:^15.5.3":
+  version: 15.5.3
+  resolution: "@next/swc-linux-x64-gnu@npm:15.5.3"
+  checksum: 670d083ff3c824569bf82a1fdafb048a8d8c7ff3890585ae6fa84122e7b0fac0c33dd5af08c755672268d9ccf65648223255ace46e873fa582549cbebfc4c8b0
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@next/swc-linux-x64-musl@npm:13.5.9":
   version: 13.5.9
   resolution: "@next/swc-linux-x64-musl@npm:13.5.9"
@@ -2204,6 +2212,20 @@ __metadata:
   version: 15.2.4
   resolution: "@next/swc-linux-x64-musl@npm:15.2.4"
   conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@next/swc-wasm-nodejs@npm:^15.5.3":
+  version: 15.5.3
+  resolution: "@next/swc-wasm-nodejs@npm:15.5.3"
+  checksum: 84be646c7f81f24f94fe647c6ab27ba3d64efb679f5b141a382ff0a0ce825ae1f487fe6b8b7f057e0cc355005d448a5c896f51e35b12fdec9c0395d3bdd8f72f
+  languageName: node
+  linkType: hard
+
+"@next/swc-wasm-web@npm:^15.5.3":
+  version: 15.5.3
+  resolution: "@next/swc-wasm-web@npm:15.5.3"
+  checksum: 0a388cfd120fc8a343bc4024b722f801a0251327ec8b60d554852fbf7b58a7759488efc8840490499c42cfffa2a1e073d22276cd55df6ab5161303325f47feda
   languageName: node
   linkType: hard
 
@@ -3927,6 +3949,9 @@ __metadata:
     "@keplr-wallet/provider-extension": ^0.12.175
     "@keplr-wallet/types": ^0.12.175
     "@keplr-wallet/unit": ^0.12.175
+    "@next/swc-linux-x64-gnu": ^15.5.3
+    "@next/swc-wasm-nodejs": ^15.5.3
+    "@next/swc-wasm-web": ^15.5.3
     "@radix-ui/react-icons": 1.3.0
     "@radix-ui/themes": 2.0.3
     "@scaffold-stark/stark-burner": ^0.1.11
