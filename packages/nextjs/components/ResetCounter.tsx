@@ -27,7 +27,7 @@ export const ResetCounter = ({ counterValue, onCounterChange, ownerAddress }: Re
   };
 
   // Check if current user is the owner
-  const isOwner = address && ownerAddress && address.toLowerCase() === ownerAddress.toLowerCase();
+	// Removed owner restriction; any connected user can reset (subject to counter value)
 
   // Normalize counterValue for consistent checks
   const getCounterValue = (value: any): number | undefined => {
@@ -45,7 +45,7 @@ export const ResetCounter = ({ counterValue, onCounterChange, ownerAddress }: Re
   };
 
   const normalizedCounterValue = getCounterValue(counterValue);
-  const isResetDisabled = normalizedCounterValue === undefined || normalizedCounterValue === 0 || isResetting || !isOwner;
+  const isResetDisabled = normalizedCounterValue === undefined || normalizedCounterValue === 0 || isResetting;
 
   if (!isConnected) {
     return (
@@ -67,41 +67,6 @@ export const ResetCounter = ({ counterValue, onCounterChange, ownerAddress }: Re
               />
             </svg>
             <span>Please connect your wallet to reset the counter</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!isOwner) {
-    return (
-      <div className="card bg-base-100 shadow-xl">
-        <div className="card-body">
-          <h2 className="card-title">Reset Counter</h2>
-          <p className="text-sm text-base-content/70">
-            Connected as: <span className="font-mono text-xs">{address}</span>
-          </p>
-          <div className="alert alert-error">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="stroke-current shrink-0 h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-              />
-            </svg>
-            <div>
-              <h3 className="font-bold">Access Denied</h3>
-              <div className="text-xs">Only the contract owner can reset the counter</div>
-              <div className="text-xs mt-1">
-                Owner: <span className="font-mono">{ownerAddress || "Loading..."}</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -170,9 +135,7 @@ export const ResetCounter = ({ counterValue, onCounterChange, ownerAddress }: Re
             onClick={handleResetCounter}
             disabled={isResetDisabled}
             title={
-              isResetDisabled && !isOwner
-                ? "Only the contract owner can reset the counter"
-                : isResetDisabled && normalizedCounterValue === 0
+              isResetDisabled && normalizedCounterValue === 0
                 ? "Counter is already at 0"
                 : isResetDisabled
                 ? "Transaction in progress"

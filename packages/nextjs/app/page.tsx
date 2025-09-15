@@ -1,9 +1,10 @@
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+
 import { ConnectedAddress } from "~~/components/ConnectedAddress";
 import { CounterDisplay } from "~~/components/CounterDisplay";
 import { CounterControls } from "~~/components/CounterControls";
 import { ResetCounter } from "~~/components/ResetCounter";
+import { SetCounter } from "~~/components/SetCounter";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-stark/useScaffoldReadContract";
 
 const Home = () => {
@@ -37,6 +38,10 @@ const Home = () => {
           counterValue={counterValue} 
           onCounterChange={refetch}
           ownerAddress={ownerAddress}
+        />
+        <SetCounter 
+          currentValue={counterValue} 
+          onCounterChange={refetch}
         />
       </div>
     </div>
